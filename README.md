@@ -33,9 +33,9 @@ Sistem ini menggunakan relasi database yang dinormalisasi untuk menjaga integrit
 ### 📊 Data Dictionary
 | Tabel | Primary Key | Foreign Key | Fungsi |
 | :--- | :--- | :--- | :--- |
-| `users` | `id` | - | Autentikasi & Role |
-| `photos` | `id` | `user_id` | Katalog Produk |
-| `comments` | `id` | `photo_id`, `user_id` | Interaksi User |
+| `users` | `userID` | - | Autentikasi & Role |
+| `foto` | `fotoID` | `userID` | Katalog Produk |
+| `komentarfoto` | `komentarID` | `fotoID`, `userID` | Interaksi User |
 
 ---
 
@@ -44,22 +44,26 @@ Sistem ini menggunakan relasi database yang dinormalisasi untuk menjaga integrit
 ### 🔐 Autentikasi
 Antarmuka Login dan Register yang bersih dan simpel.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/46c90775-83fc-4eea-b515-cb0cff771b66" width="800" />
+  <img width="917" height="732" alt="Image" src="https://github.com/user-attachments/assets/a51ac271-6583-49e8-8867-73f6b27a7a29" />
 </p>
 
 ### 📱 Dashboard (User & Admin)
-Grid produk yang responsif untuk berbagai ukuran layar.
+Halaman user sama dengan halaman admin namun tidak bisa crud.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b62862f5-fb75-4c1d-8489-cd891b2a085d" width="400" />
-  <img src="https://github.com/user-attachments/assets/6501d916-915a-4f2d-8826-f1b74ce2477d" width="400" />
+  <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/e858bcb0-f538-4ef8-901b-53a485924100" />
+</p>
+
+### 📱 Dashboard (User & Admin)
+Detail produk sekaligus dengan nemanbah komentar.
+<p align="center">
+ <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f00d0879-a775-4369-b61e-00f1ead75ee1" />
 </p>
 
 ### 🛠️ Panel Manajemen & Form (Admin Only)
 Kontrol penuh bagi administrator untuk mengelola konten galeri.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/faec19dc-c146-4b7c-a8b5-d431e7b93169" width="270" />
-  <img src="https://github.com/user-attachments/assets/3bf271cd-db93-4eea-9942-603044b8f0f8" width="270" />
-  <img src="https://github.com/user-attachments/assets/0a5a5df7-354b-4bd7-9f03-dfad669ef364" width="270" />
+  <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/289a5f6d-1ced-4eb1-9f8a-390f42448c0f" />
+  <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b9531ca4-7aff-4380-bb6a-89303d7773f5" />
 </p>
 
 ---
@@ -68,14 +72,23 @@ Kontrol penuh bagi administrator untuk mengelola konten galeri.
 Cukup 4 langkah untuk menjalankan aplikasi di komputer lokal:
 
 ```bash
-# 1. Clone Repositori
-git clone [https://github.com/Revanmalangg/galeri.git](https://github.com/Revanmalangg/galeri.git) && cd galeri
+# Clone Repository
+git clone https://github.com/username/katalog-produk.git
 
-# 2. Persiapan Environment
-composer install && cp .env.example .env && php artisan key:generate
+# Masuk ke folder project
+cd katalog-produk
 
-# 3. Migrasi Database & Storage
-php artisan migrate && php artisan storage:link
+# Install dependency
+composer install
 
-# 4. Jalankan Aplikasi
+# Copy file environment
+cp .env.example .env
+
+# Generate key
+php artisan key:generate
+
+# Migrasi database
+php artisan migrate
+
+# Jalankan aplikasi
 php artisan serve
