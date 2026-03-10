@@ -28,8 +28,14 @@ Route::middleware('auth')->group(function () {
 
     //foto
     Route::get('/produk', [FotoController::class, 'index'])->name('produk.index');
+    Route::get('/produk/{id}', [FotoController::class, 'show'])->name('produk.show');
+
     Route::get('/produk/create', [FotoController::class, 'create'])->name('produk.create');
     Route::post('/produk', [FotoController::class, 'store'])->name('produk.store');
+
+    Route::get('/produk/{id}/edit', [FotoController::class, 'edit'])->name('produk.edit');
+    Route::put('/produk/{id}', [FotoController::class, 'update'])->name('produk.update');
+
     Route::delete('/produk/{id}', [FotoController::class, 'destroy'])->name('produk.destroy');
     
     Route::post('/komentar', [KomentarFotoController::class, 'store'])->name('komentar.store');

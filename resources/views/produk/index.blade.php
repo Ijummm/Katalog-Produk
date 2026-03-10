@@ -15,7 +15,9 @@
         @foreach($fotos as $f)
         <div class="col">
             <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                <div class="position-relative">
+                <a href="{{ route('produk.show', $f->fotoID) }}" class="text-decoration-none text-dark">
+                    <h5 class="card-title fw-bold">{{ $f->judulFoto }}</h5>
+                    <div class="position-relative">
                     <img src="{{ asset('storage/photos/'.$f->lokasiFile) }}" 
                          class="card-img-top" 
                          style="height: 250px; object-fit: cover;" 
@@ -23,6 +25,9 @@
                     
                     @if(Auth::user()->role == 'admin')
                     <div class="position-absolute top-0 end-0 m-2">
+                        <a href="{{ route('produk.edit', $f->fotoID) }}" class="btn btn-warning btn-sm rounded-circle p-2 shadow" title="Edit">
+                            <i class="fas fa-edit text-dark"></i>
+                        </a>
                         <form action="{{ route('produk.destroy', $f->fotoID) }}" method="POST" onsubmit="return confirm('Hapus produk ini?')">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm rounded-circle p-2 shadow" title="Hapus">
@@ -32,6 +37,9 @@
                     </div>
                     @endif
                 </div>
+
+                </a>
+                
 
                 <div class="card-body">
                     <h5 class="card-title fw-bold">{{ $f->judulFoto }}</h5>
