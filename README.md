@@ -25,7 +25,7 @@ Aplikasi ini menerapkan sistem **Role-Based Access Control (RBAC)** dengan fitur
 Sistem ini menggunakan relasi database yang dinormalisasi untuk menjaga integritas data.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0ca55280-6aed-45f2-a99c-a64be3b8081a" width="600" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img width="660" height="672" alt="Image" src="https://github.com/user-attachments/assets/9f14a655-dd40-43f7-a5f1-a09eeb0262ef" />
 </p>
 
 
