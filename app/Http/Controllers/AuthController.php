@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Menampilkan halaman Login
     public function index() {
         return view('auth.login');
     }
 
-    // Proses Login
     public function login(Request $request) {
         $credentials = $request->validate([
             'email' => 'required',
@@ -29,12 +27,9 @@ class AuthController extends Controller
         return back()->with('error', 'Email atau Password salah!');
     }
 
-    // Menampilkan halaman Register (Hanya untuk User)
     public function register() {
         return view('auth.register');
     }
-
-    // Proses Simpan Register
     public function storeRegister(Request $request) {
         $data = $request->validate([
             'username' => 'required|unique:users',
@@ -52,7 +47,6 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login!');
     }
 
-    // Logout
     public function logout() {
         Auth::logout();
         return redirect()->route('login');
