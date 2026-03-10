@@ -95,4 +95,4 @@ class FotoController extends Controller
         $foto = Foto::with('komentars.user')->findOrFail($id);
         return view('produk.show', compact('foto'));
     }
-    }
+}
